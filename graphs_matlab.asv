@@ -1,0 +1,34 @@
+load matlab_check.mat
+
+x = out.state(:,1);
+y = out.state(:,2);
+phi = out.state(:,3);
+v = out.state(:,4);
+
+% figure(1)
+% hold on
+% plot(x,y,'--');
+% grid on
+% hold off
+
+% figure(2)
+% hold on
+% plot([0:5e-4:10],v);
+% grid on
+% hold off
+
+hold on
+plot(x,y,'--');
+for i = 1:100:length(x)
+   figure(1)
+   h = plot(x(i),y(i),'^r');
+   grid on
+   ylim([0,500])
+   xlim([0,350])
+   pause(0.002)
+   delete(h)
+end
+hold off
+
+
+
